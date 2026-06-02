@@ -1,5 +1,5 @@
-/* Import Google font */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
+/* ── 0. FONTS & ROOT CONFIGURATIONS ── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=200;300;400;500;600;700;800&display=swap');
 
 :root {
     --background: #ffffff;
@@ -10,13 +10,12 @@
     --primary-foreground: #ffffff;
     --primary-muted: #9ea3b5;
 
-    --secondary: #15b2f5; /* Your requested bright blue accent */
+    --secondary: #15b2f5; 
     --secondary-foreground: #ffffff;
 
-    /* Additional semantic color tokens */
-    --secondary-hover: #0ea5e9; /* darker/lighter hover for secondary */
-    --muted-light: #cbd5e1; /* light muted text used on hero features */
-    --live-dot: #ef4444; /* red live dot */
+    --secondary-hover: #0ea5e9; 
+    --muted-light: #cbd5e1; 
+    --live-dot: #ef4444; 
     --muted-border: rgba(255, 255, 255, 0.15);
 
     --surface: #f3f5f9;
@@ -27,28 +26,26 @@
     --font-sans: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Reset / box-sizing */
+/* Reset / Box-sizing */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Base page styles */
 body{
     font-family: var(--font-sans);
     background: var(--background);
 }
 
-/* CONTAINER WITH THE REPLICATED ANGULAR DESIGN BELOW */
+
+/* ── 1. HERO WRAPPER & HEADER ── */
 .hero-wrapper {
     background: var(--primary);
     padding-bottom: 40px;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 76% calc(100% - 40px), 74% 100%, 26% 100%, 24% calc(100% - 40px), 0 calc(100% - 40px));
 }
 
-/* HEADER */
-/* Top navigation and logo */
 header{
     display: flex;
     justify-content: space-between;
@@ -56,20 +53,17 @@ header{
     padding: 20px 120px;
 }
 
-/* Logo image (used instead of text link) */
 .logo img{
     height: 42px;
     width: auto;
     display: block;
 }
 
-/* Hide mobile menu button on desktop; shown only in mobile media query */
 .menu-btn{ display: none; }
 
 nav{
     display: flex;
     gap: 35px;
-    
 }
 
 nav a{
@@ -82,7 +76,6 @@ nav a{
 
 nav a:hover {
     color: var(--muted-light);
-    
 }
 
 .service-badge {
@@ -94,7 +87,7 @@ nav a:hover {
 .service-badge .dot {
     width: 8px;
     height: 8px;
-    background-color: var(--live-dot); /* Live red tracking dot */
+    background-color: var(--live-dot); 
     border-radius: 50%;
 }
 
@@ -105,7 +98,8 @@ nav a:hover {
     font-weight: 500;
 }
 
-/* HERO GRID STRUCTURE */
+
+/* ── 2. HERO MAIN CONTENT ── */
 .hero{
     display: grid;
     grid-template-columns: 280px 1fr 280px;
@@ -114,12 +108,13 @@ nav a:hover {
     padding: 10px;
 }
 
-/* IMAGES */.hero-image img{
+.hero-image img{
     width: 100%;
     height: 540px;
     object-fit: cover;
     border-radius: 24px;
-}/* CENTER CONTENT */
+}
+
 .hero-content{
     text-align: center;
     color: white;
@@ -155,7 +150,6 @@ nav a:hover {
     letter-spacing: -0.5px;
 }
 
-/* BENEFITS (FREE QUOTES) */
 .hero-benefits{
     display: flex;
     justify-content: center;
@@ -163,7 +157,6 @@ nav a:hover {
     margin-top: 30px;
 }
 
-/* Benefit labels (small inline badges) */
 .hero-benefits span{
     color: var(--secondary);
     font-size: 15px;
@@ -173,8 +166,6 @@ nav a:hover {
     gap: 6px;
 }
 
-/* CALL BUTTON */
-/* Primary CTA button with circular icon */
 .hero-content button.call-btn{
     margin-top: 35px;
     background: var(--secondary);
@@ -197,7 +188,6 @@ nav a:hover {
 }
 
 .btn-icon {
-    /* Small circular white icon holder inside call button */
     background: white;
     border-radius: 50%;
     width: 30px;
@@ -206,14 +196,13 @@ nav a:hover {
     justify-content: center;
     align-items: center;
 }
-/* Ensure the phone SVG fits nicely */
+
 .btn-icon img{
     width: 18px;
     height: 18px;
     display: block;
 }
 
-/* FEATURES INLINE GRID */
 .hero-features{
     margin-top: 80px;
     display: flex;
@@ -240,7 +229,6 @@ nav a:hover {
     color: var(--muted-light);
 }
 
-/* Feature icons (round background) */
 .icon{
     width: 42px;
     height: 42px;
@@ -252,65 +240,8 @@ nav a:hover {
     align-items: center;
 }
 
-/* RESPONSIVE DESIGN DEGRADATION */
-@media(max-width: 1100px){
-    .hero {
-        grid-template-columns: 1fr;
-        padding: 40px 20px;
-    }
-    
-    .hero-image {
-        display: none;
-    }
 
-    header {
-        padding: 20px;
-        /* keep header horizontal on mobile so logo and menu sit in one row */
-        flex-direction: row;
-        gap: 8px;
-        align-items: center;
-    }
-
-    /* Hide desktop nav on mobile and show menu button */
-    nav{ display: none; }
-    .menu-btn{ display: inline-flex; background: transparent; border: none; align-items: center; }
-    .menu-btn img{ width: 28px; height: 28px; display: block; }
-
-    /* Hide the top/beside 24 Hour Services badge on mobile (it's shown in the sidebar footer) */
-    .service-badge{ display: none; }
-
- .hero-features {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-}
-
-.feature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-
-    border-right: 1px solid var(--muted-border);
-    border-bottom: 1px solid var(--muted-border);
-    
-}
-
-.feature p {
-    text-align: center;
-}
-
-/* Remove right border from items in the second column */
-.feature:nth-child(2n) {
-    border-right: none;
-}
-
-/* Remove bottom border from the last row */
-.feature:nth-last-child(-n + 2) {
-    border-bottom: none;
-}}
-
-/* Mobile sidebar styles */
+/* ── 3. MOBILE SIDEBAR OVERLAY ── */
 .sidebar-overlay{
     position: fixed;
     inset: 0;
@@ -320,6 +251,7 @@ nav a:hover {
     transition: opacity 200ms ease, visibility 200ms;
     z-index: 40;
 }
+
 .sidebar-overlay.visible{
     opacity: 1;
     visibility: visible;
@@ -339,42 +271,32 @@ nav a:hover {
     z-index: 50;
     display: flex;
     flex-direction: column;
-    /* space between header, nav, footer so footer stays at bottom */
     justify-content: space-between;
     padding: 20px 22px;
 }
+
 .mobile-sidebar.open{
     transform: translateX(0);
 }
+
 .mobile-sidebar .sidebar-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
     margin-bottom: 24px;
 }
+
 .mobile-sidebar .sidebar-header img{ height:28px; }
 .mobile-sidebar .sidebar-close{ background: transparent; border: none; }
 .mobile-sidebar .sidebar-close img{ width:22px; height:22px; }
-.mobile-sidebar .sidebar-nav{ display:flex; flex-direction:column; gap:40px; /* larger gap between items */ margin-top: 22px; align-items: center; flex: 1 1 auto; }
+.mobile-sidebar .sidebar-nav{ display:flex; flex-direction:column; gap:40px; margin-top: 22px; align-items: center; flex: 1 1 auto; }
 .mobile-sidebar .sidebar-nav a{ color:var(--primary-foreground); text-decoration:none; font-size:18px; font-weight:600; padding:8px 0; width:100%; text-align:center; letter-spacing:0.4px; word-spacing:2px; }
-.mobile-sidebar .sidebar-footer{ display:flex; align-items:center; gap:10px; padding-top:12px; justify-content:flex-start; padding-bottom:28px; }
+.mobile-sidebar .sidebar-footer{ display:flex; align-items:center; gap:10px; padding-top:12px; justify-content:flex-start; padding-bottom:18px; }
 .mobile-sidebar .sidebar-footer .dot{ width:8px; height:8px; background:var(--live-dot); border-radius:50%; margin-right:8px; margin-left:0; }
 .mobile-sidebar .sidebar-footer a{ color:var(--primary-foreground); font-weight:700; font-size:16px; text-decoration:none; }
 
-/* Menu-specific service highlight (red dot + label) */
-.mobile-sidebar .sidebar-footer a{ color:var(--primary-foreground); font-weight:700; text-decoration:none; }
-.mobile-sidebar .sidebar-footer{ padding-bottom: 18px; }
 
-/* Mobile CTA adjustments */
-@media(max-width: 560px){
-    .hero-content h1{ font-size:28px; }
-    .hero-content button.call-btn{ padding: 16px 22px; font-size:15px; }
-    .btn-icon{ width:36px; height:36px; }
-    .btn-icon img{ width:16px; height:16px; }
-}
-
-/* SERVICES SECTION */
-/* White background section with services list and image */
+/* ── 4. SECTION 1: PROFESSIONAL SERVICES ── */
 .services-section {
     background: #ffffff;
     padding: 60px 40px;
@@ -406,7 +328,6 @@ nav a:hover {
     max-width: 450px;
 }
 
-/* Services grid - 2 columns */
 .services-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -422,16 +343,17 @@ nav a:hover {
     font-weight: 600;
     color: var(--primary);
 }
+
 .service-item span {
     color: var(--primary-accent);
 }
+
 .service-item img {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
 }
 
-/* Services CTA button */
 .services-cta {
     display: inline-block;
     background: var(--secondary);
@@ -455,8 +377,6 @@ nav a:hover {
     background: var(--secondary-hover);
 }
 
-
-/* Services image on the right */
 .services-image {
     display: flex;
     justify-content: center;
@@ -467,10 +387,10 @@ nav a:hover {
 
 .services-image img {
     max-width: 100%;
-    height: auto;
     display: block;
     height: 90%;
 }
+
 .services-image-wrapper {
     width: 100%;
     height: 100%;
@@ -478,7 +398,9 @@ nav a:hover {
     justify-content: center;
     align-items: center;
 }
-/* ── OUR SERVICES SECTION ── */
+
+
+/* ── 5. SECTION 2: OUR SERVICES GRID ── */
 .our-services-section {
     background: #ffffff;
     padding: 60px 80px;
@@ -586,4 +508,363 @@ nav a:hover {
 
 .our-services-cta-btn:hover {
     background: var(--surface);
+}
+
+
+/* ── 6. SECTION 3: GUARANTEE BLOCK ── */
+.guarantee-section {
+    background: var(--background); 
+    padding: 60px 20px; 
+    display: flex;
+    justify-content: center;
+}
+
+.guarantee-container {
+    background-color: var(--primary); 
+    max-width: 1360px; 
+    width: 100%;
+    padding: 60px 80px;
+    border-radius: 16px;
+    color: var(--primary-foreground);
+    
+    /* Decorative angled notch designs on desktop side frames */
+    clip-path: polygon(
+        0% 0%, 100% 0%, 
+        100% 20%, calc(100% - 15px) 23%, calc(100% - 15px) 77%, 100% 80%, 100% 100%, 
+        0% 100%, 
+        0% 80%, 15px 77%, 15px 23%, 0% 20%
+    );
+}
+
+.guarantee-header {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px; 
+    align-items: center;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+
+.guarantee-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    color: var(--primary-foreground);
+}
+
+.guarantee-header p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--primary-muted); 
+}
+
+.guarantee-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 80px; 
+}
+
+.guarantee-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.guarantee-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guarantee-icon svg,
+.guarantee-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.guarantee-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--primary-foreground);
+}
+
+.guarantee-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--primary-muted); 
+}
+
+
+/* ── 7. MEDIA QUERY: LAPTOPS / MEDIUM TABLETS (1100px) ── */
+@media(max-width: 1100px){
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+    }
+    
+    .hero-image {
+        display: none;
+    }
+
+    header {
+        padding: 20px;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+    }
+
+    nav{ display: none; }
+    .menu-btn{ display: inline-flex; background: transparent; border: none; align-items: center; }
+    .menu-btn img{ width: 28px; height: 28px; display: block; }
+
+    .service-badge{ display: none; }
+
+    .hero-features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+    }
+
+    .feature {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        border-right: 1px solid var(--muted-border);
+        border-bottom: 1px solid var(--muted-border);
+    }
+
+    .feature p {
+        text-align: center;
+    }
+
+    .feature:nth-child(2n) {
+        border-right: none;
+    }
+
+    .feature:nth-last-child(-n + 2) {
+        border-bottom: none;
+    }
+}
+
+
+/* ── 8. MEDIA QUERY: SMALL TABLETS / TOWARDS SMARTPHONES (992px) ── */
+@media (max-width: 992px) {
+    .guarantee-container {
+        padding: 50px 40px;
+        clip-path: polygon(
+            0% 0%, 100% 0%, 
+            100% 25%, calc(100% - 10px) 27%, calc(100% - 10px) 73%, 100% 75%, 100% 100%, 
+            0% 100%, 
+            0% 75%, 10px 73%, 10px 27%, 0% 25%
+        );
+    }
+
+    .guarantee-header {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .guarantee-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+
+/* ── 9. MEDIA QUERY: CORE MOBILE BREAKPOINT (768px) ── */
+@media (max-width: 768px) {
+
+    /* Section 1: Professional Services */
+    .services-section {
+        padding: 30px 20px;
+    }
+
+    .services-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .services-image-wrapper {
+        order: 1;
+        display: block; 
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .services-content {
+        order: 2;
+        text-align: center; 
+    }
+
+    .services-content h2 {
+        font-size: 26px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .services-content > p {
+        font-size: 14px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+        max-width: max-content; 
+        margin-left: auto;      
+        margin-right: auto;     
+    }
+
+    .service-item {
+        font-size: 18px;       
+        text-align: left;       
+    }
+
+    .services-cta {
+        display: block;
+        font-size: 13px;
+        padding: 16px 20px;
+        text-align: center;
+    }
+
+    .services-image {
+        text-align: center;
+    }
+
+    /* Section 2: Our Services */
+    .our-services-section {
+        padding: 40px 20px;
+        text-align: center; 
+    }
+
+    .our-services-header h2 { font-size: 28px; }
+    .our-services-header p { font-size: 14px; }
+
+    .our-services-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .our-service-item {
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;  
+    }
+
+    .our-service-icon {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto 12px auto; 
+    }
+
+    .our-service-icon img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .our-service-item strong {
+        font-size: 16px;
+        display: block;
+    }
+
+    .our-service-item p { font-size: 13px; }
+
+    .our-services-cta-card {
+        padding: 28px 20px;
+        gap: 12px;
+        text-align: center; 
+    }
+
+    .our-services-cta-card strong {
+        font-size: 17px;
+        display: block;
+    }
+
+    .our-services-cta-card p { font-size: 14px; }
+
+    .our-services-cta-btn {
+        padding: 14px 20px;
+        font-size: 15px;
+        margin: 0 auto; 
+    }
+
+    /* Section 3: Guarantee - NOW A NORMAL CARD BOX ON MOBILE */
+    .guarantee-section {
+        padding: 30px 15px;
+    }
+
+    .guarantee-container {
+        padding: 35px 24px;
+        border-radius: 16px; /* Uniform normal box corners */
+        clip-path: none;    /* Completely removes the custom screen notch cutouts */
+    }
+
+    .guarantee-header {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        text-align: center;
+        border-bottom: none; /* Line removed completely */
+        padding-bottom: 0;
+        margin-bottom: 30px; /* Reduced margin since line is gone */
+    }
+
+    .guarantee-header h2 {
+        font-size: 26px;
+        line-height: 1.25;
+    }
+
+    .guarantee-header p {
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    .guarantee-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .guarantee-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .guarantee-icon {
+        margin: 0 auto;
+    }
+
+    .guarantee-content h3 {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+
+    .guarantee-content p {
+        font-size: 13.5px;
+        line-height: 1.5;
+    }
+}
+
+
+/* ── 10. MEDIA QUERY: SMALL PHONES (560px & Under) ── */
+@media(max-width: 560px){
+    .hero-content h1{ font-size:28px; }
+    .hero-content button.call-btn{ padding: 16px 22px; font-size:15px; }
+    .btn-icon{ width:36px; height:36px; }
+    .btn-icon img{ width:16px; height:16px; }
 }

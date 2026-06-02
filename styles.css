@@ -868,3 +868,336 @@ nav a:hover {
     .btn-icon{ width:36px; height:36px; }
     .btn-icon img{ width:16px; height:16px; }
 }
+
+/* ==========================================================================
+   ── HOW HOMEPRO WORKS SECTION CSS ──
+   ========================================================================== */
+.how-works-section {
+    background-color: var(--background);
+    padding: 80px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.how-works-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Image Wrapper and Corner System */
+.how-works-image-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.how-works-img-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+}
+
+.how-works-main-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 32px; /* Smooth rounded shape matching the design */
+}
+
+/* Absolute Positioning for Badge Check Icon */
+.verified-badge-container {
+    position: absolute;
+    top: 30px;
+    right: -20px;
+    width: 54px;
+    height: 54px;
+    z-index: 2;
+}
+
+.verified-badge-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Text & Columns Row Styling */
+.how-works-content-block h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 40px;
+    letter-spacing: -0.5px;
+}
+
+.steps-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.step-row {
+    display: grid;
+    grid-template-columns: 35px 160px 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.step-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-muted);
+    line-height: 1.2;
+}
+
+.step-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.3;
+    padding-top: 4px;
+}
+
+.step-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+    padding-top: 4px;
+}
+
+
+/* ==========================================================================
+   ── TRUSTED PLATFORM REVIEWS SECTION CSS ──
+   ========================================================================== */
+.reviews-section {
+    background-color: var(--background);
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.reviews-container {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+}
+
+.reviews-container h2 {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+.trustpilot-brand {
+    margin-bottom: 45px;
+    display: flex;
+    justify-content: center;
+}
+
+.trustpilot-brand img {
+    height: 32px;
+    width: auto;
+}
+
+/* Slider UI Layout Engine */
+.reviews-slider-interface {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.review-display-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-statement {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 30px;
+    max-width: 680px;
+}
+
+/* User Profile Row Design */
+.review-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+}
+
+.user-avatar-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-profile-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.user-profile-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.user-stars-row {
+    display: flex;
+    gap: 3px;
+}
+
+.star-icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* Circular Control Navigation Arrows */
+.slider-arrow-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--muted-light);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.slider-arrow-btn:hover {
+    background-color: var(--surface);
+    border-color: var(--muted);
+}
+
+.slider-arrow-btn img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Slider Track Dots Indicator Layout */
+.slider-pagination-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px;
+}
+
+.pagination-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #e2e8f0;
+    border-radius: 50%;
+    transition: width 0.2s, background-color 0.2s;
+}
+
+.pagination-dot.active-dot {
+    width: 22px;
+    border-radius: 4px;
+    background-color: var(--secondary);
+}
+
+
+/* ==========================================================================
+   ── MOBILE RESPONSIVE MEDIA QUERIES (768px BREAKPOINT) ──
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* How It Works Mobile Settings */
+    .how-works-section {
+        padding: 50px 20px;
+    }
+
+    .how-works-container {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .verified-badge-container {
+        right: 10px;
+        top: 20px;
+        width: 46px;
+        height: 46px;
+    }
+
+    .how-works-content-block h2 {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .step-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: center;
+        padding-bottom: 15px;
+    }
+
+    .step-number {
+        font-size: 22px;
+    }
+
+    .step-title {
+        font-size: 17px;
+        padding-top: 0;
+    }
+
+    .step-description {
+        font-size: 14px;
+        padding-top: 0;
+    }
+
+    /* Reviews Platform Mobile Settings */
+    .reviews-section {
+        padding: 50px 20px;
+    }
+
+    .reviews-container h2 {
+        font-size: 28px;
+    }
+
+    .reviews-slider-interface {
+        position: relative;
+        padding-bottom: 70px; /* Leave space for bottom absolute floating controls */
+    }
+
+    .review-statement {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* Reposition the left/right arrows beautifully underneath the text layout on mobile */
+    .slider-arrow-btn {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .prev-arrow {
+        left: calc(50% - 55px);
+    }
+
+    .next-arrow {
+        right: calc(50% - 55px);
+    }
+
+    .slider-pagination-dots {
+        margin-top: 20px;
+    }
+}

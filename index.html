@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePro</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/sidebar.js" defer></script>
+</head>
+<body>
+    
+    <!-- Page hero wrapper (top section with background and CTA) -->
+    <div class="hero-wrapper">
+        <header>
+            <div class="logo">
+                <img id="logo" src="images/nav-logo.png" alt="HomePro logo">
+            </div>
+
+            <!-- Mobile menu button (visible on small screens) -->
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+                <img src="icons/icon_menu.svg" alt="menu icon">
+            </button>
+
+            <nav>
+                <a href="#">About Us</a>
+                <a href="#">Services</a>
+                <a href="#">Our Blog</a>
+                <a href="#">Contact</a>
+            </nav>
+
+            <div class="service-badge">
+                <span class="dot"></span>
+                <a href="#">24 Hour Services</a>
+            </div>
+        </header>
+
+        <!-- Mobile sidebar + overlay (hidden by default) -->
+        <div class="sidebar-overlay" id="sidebarOverlay" tabindex="-1"></div>
+        <aside class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+            <div class="sidebar-header">
+                <img src="images/nav-logo.png" alt="HomePro logo">
+                <button class="sidebar-close" id="sidebarClose" aria-label="Close menu"><img src="icons/icon_x.svg" alt="close"></button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#">About Us</a>
+                <a href="#">Services</a>
+                <a href="#">Our Blog</a>
+                <a href="#">Contact</a>
+                <!-- 24 Hour Services is shown in the sidebar footer (bottom) per design -->
+            </nav>
+
+            <div class="sidebar-footer">
+                <span class="dot"></span>
+                <a href="#">24 Hour Services</a>
+            </div>
+        </aside>
+
+            <!-- Main content / hero section -->
+            <main>
+            <section class="hero">
+                <div class="hero-image left">
+                    <img src="images/worker-left.png" alt="Worker repairing door">
+                </div>
+
+                <div class="hero-content">
+                    <div class="hero-tags">
+                        <span>Maintenances</span>
+                        <span>Repairs</span>
+                        <span>Improvements</span>
+                    </div>
+
+                    <h1>
+                        Need improvement or repair your home?<br>we can help!
+                    </h1>
+
+                    <!-- Small benefit badges below the heading -->
+                    <div class="hero-benefits">
+                        <span><img src="icons/icon-check.svg" alt="checkmark"> Free Quotes</span>
+                        <span><img src="icons/icon-check.svg" alt="checkmark"> 100% Commitment-Free</span>
+                    </div>
+
+                    <!-- Primary call-to-action button -->
+                    <button class="call-btn" aria-label="Call Us Now">
+                        Call Us Now
+                        <span class="btn-icon"><img src="icons/icon-phone.svg" alt="phone icon"></span>
+                    </button>
+
+                    <div class="hero-features">
+                        <div class="feature">
+                            <div class="icon"><img src="icons/icon-guarantee.svg" alt="guarantee icon"></div>
+                            <p>Satisfaction<br>Guarantee</p>
+                        </div>
+
+                        <div class="feature">
+                            <div class="icon"><img src="icons/icon-clock.svg" alt="24 hour availability icon"></div>
+                            <p>24H<br>Availability</p>
+                        </div>
+
+                        <div class="feature">
+                            <div class="icon"><img src="icons/icon-map-pin.svg" alt="location icon"></div>
+                            <p>Local US<br>Professional</p>
+                        </div>
+
+                        <div class="feature">
+                            <div class="icon"><img src="icons/icon-calendar.svg" alt="calendar icon"></div>
+                            <p>Flexible<br>Appointments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image right">
+                    <img src="images/worker-right.png" alt="Worker fixing toilet">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Professional Services Section -->
+    <section class="services-section">
+        <div class="services-container">
+            <div class="services-content">
+                <h2>Professional for your home services</h2>
+                <p>You need help for home care? We are home care professionals focused in the US region. We provide several services that support home services.</p>
+
+                <div class="services-grid">
+                    <div class="service-item">
+                        <img src="icons/Vector.svg" alt="checkmark">
+                        <span>Repair and Installation</span>
+                    </div>
+                    <div class="service-item">
+                        <img src="icons/Vector.svg" alt="checkmark">
+                        <span>Plumbing</span>
+                    </div>
+                    <div class="service-item">
+                        <img src="icons/Vector.svg" alt="checkmark">
+                        <span>Maintenance</span>
+                    </div>
+                    <div class="service-item">
+                        <img src="icons/Vector.svg" alt="checkmark">
+                        <span>Budget-friendly</span>
+                    </div>
+                    <div class="service-item">
+                        <img src="icons/Vector.svg" alt="checkmark">
+                        <span>Home Security Services</span>
+                    </div>
+                    <div class="service-item">
+                        <img src="icons/Vector.svg" alt="checkmark">
+                        <span>Eco-friendly solutions</span>
+                    </div>
+                </div>
+
+                <a href="#" class="services-cta">
+                    We are already 24 hours fast services to help you.<br>
+                    You can contact us at <span class="phone"><u>(888) 617-5894</u></span>
+                </a>
+            </div>
+            <div class="services-image">
+    <div class="services-image-wrapper">
+        <img src="images/workers.png" alt="Roofing services" />
+    </div>
+</div>
+        </div>
+    </section>
+    <section class="our-services-section">
+    <div class="our-services-header">
+        <h2>Our Services</h2>
+        <p>You have problems with leaking pipes, broken tiles, lost keys or want to tidy up the trees around you, of course you need our help!</p>
+    </div>
+
+    <div class="our-services-grid">
+
+        <div class="our-service-item">
+            <div class="our-service-icon">
+                <img src="icons/plumbing.svg" alt="">
+            </div>
+            <strong>Plumbing services</strong>
+            <p>Drain pipe leaking, pipe clogged, replace the pipe line</p>
+        </div>
+
+        <div class="our-service-item">
+            <div class="our-service-icon">
+                <img src="icons/roofing.svg" alt="">
+            </div>
+            <strong>Roofing repair</strong>
+            <p>Roof leaks, tile replacement, roof cleaning and maintenance</p>
+        </div>
+
+        <div class="our-service-item">
+            <div class="our-service-icon">
+                <img src="icons/mold.svg" alt="">
+            </div>
+            <strong>Mold Removal</strong>
+            <p>Removing and cleaning mildew, Restoration and Prevention</p>
+        </div>
+
+        <div class="our-service-item">
+            <div class="our-service-icon">
+                <img src="icons/tree.svg" alt="">
+            </div>
+            <strong>Tree Trimming</strong>
+            <p>Trimming and cleaning, Deadwood removal, Tree shaping</p>
+        </div>
+
+        <div class="our-service-item">
+            <div class="our-service-icon">
+                <img src="icons/appliance.svg" alt="">
+            </div>
+            <strong>Appliance Repair</strong>
+            <p>repair of washing machines, refrigerators, Air conditioner, etc</p>
+        </div>
+
+        <div class="our-service-item">
+            <div class="our-service-icon">
+                <img src="icons/bathroom.svg" alt="">
+            </div>
+            <strong>Bathroom Remodeling</strong>
+            <p>Design and Consulting, installation, Repairing, tile repair</p>
+        </div>
+
+        <div class="our-service-item">
+            <div class="our-service-icon">
+                <img src="icons/locksmith.svg" alt="">
+            </div>
+            <strong>Locksmith</strong>
+            <p>Lock Installation and Repair, Duplication, Lock Rekeying</p>
+        </div>
+
+        <div class="our-services-cta-card">
+            <strong>More service?</strong>
+            <p>You can tell us what you need and we can help!</p>
+            <a href="tel:+18885775894" class="our-services-cta-btn">Call Us Now</a>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>

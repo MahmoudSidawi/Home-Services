@@ -29,6 +29,16 @@
 
     --muted: #545971;
 
+    --faq-title: #111e47;
+    --faq-text: #64748b;
+    --faq-link: #00a8ff;
+    --faq-link-hover: #008cd4;
+    --faq-border: #edf2f7;
+    --faq-active-bg: #f4f6fc;
+    --faq-arrow: #b1bdcf;
+    --faq-active-arrow: #111e47;
+    --faq-answer: #52607a;
+
     --font-sans: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -1516,11 +1526,10 @@ nav a:hover {
     }
 }
 /* ==========================================================================
-   ── FREQUENTLY ASKED QUESTIONS SECTION STYLE SHEET ──
-   ========================================================================== */
+   ── FREQUENTLY ASKED QUESTIONS SECTION STYLES ──
+   ========================================================================= */
 .faq-section {
-    background-color: #ffffff;
-    /* Clean standard vertical padding since this isn't the final section */
+    background-color: var(--background);
     padding: 80px 40px;
     display: flex;
     justify-content: center;
@@ -1539,14 +1548,13 @@ nav a:hover {
 .faq-info-block {
     flex: 1;
     max-width: 380px;
-    position: sticky;
-    top: 40px;
+    position: relative;
 }
 
 .faq-main-title {
     font-size: 42px;
     font-weight: 700;
-    color: #111e47; /* Accurate dark navy brand hue */
+    color: var(--faq-title);
     line-height: 1.2;
     margin: 0 0 16px 0;
     letter-spacing: -0.5px;
@@ -1554,19 +1562,34 @@ nav a:hover {
 
 .faq-support-text {
     font-size: 15px;
-    color: #64748b;
+    color: var(--faq-text);
     margin: 0;
 }
 
 .faq-link {
-    color: #00a8ff; /* Active bright sky-blue highlight link */
+    color: var(--faq-link);
     font-weight: 600;
     text-decoration: underline;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     transition: color 0.2s ease;
 }
 
 .faq-link:hover {
-    color: #008cd4;
+    color: var(--faq-link-hover);
+}
+
+/* Inline Link SVG Control */
+.faq-link-arrow {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.faq-link:hover .faq-link-arrow {
+    transform: translateX(3px);
 }
 
 /* Right Content Accordion Panel Assemblies */
@@ -1577,13 +1600,13 @@ nav a:hover {
 }
 
 .faq-item {
-    border-bottom: 1px solid #edf2f7;
+    border-bottom: 1px solid var(--faq-border);
     transition: all 0.25s ease-in-out;
 }
 
-/* Open/Active Accordion Item Cards Card Layout matching image_e8d63a.png */
+/* Open/Active Accordion Item Cards Card Layout */
 .faq-item.active {
-    background-color: #f4f6fc; /* Muted slate background container bubble */
+    background-color: var(--faq-active-bg);
     border-radius: 12px;
     border-bottom: 1px solid transparent;
     padding: 6px 16px;
@@ -1610,16 +1633,21 @@ nav a:hover {
 .faq-question {
     font-size: 18px;
     font-weight: 600;
-    color: #111e47;
+    color: var(--faq-title);
     line-height: 1.4;
 }
 
+/* Inline Accordion SVG Arrow Control */
 .faq-arrow {
-    width: 16px;
-    height: 16px;
-    object-fit: contain;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
-    transition: transform 0.2s ease;
+    color: var(--faq-arrow);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.faq-item.active .faq-arrow {
+    color: var(--faq-active-arrow);
 }
 
 /* Panel Body Sliding Mechanics Setup */
@@ -1631,27 +1659,26 @@ nav a:hover {
 }
 
 .faq-item.active .faq-panel {
-    max-height: 300px; /* Standard fallback height limits for dynamic arrays */
+    max-height: 300px; 
     padding: 4px 8px 18px 8px;
 }
 
 .faq-answer {
     font-size: 14.5px;
-    color: #52607a;
+    color: var(--faq-answer);
     line-height: 1.6;
     margin: 0;
 }
 
 
 /* ==========================================================================
-   ── MOBILE MODE LAYOUT CONTROLS (MATCHING SCREENSHOT image_e8d315.png) ──
+   ── MOBILE MODE LAYOUT CONTROLS ──
    ========================================================================== */
 @media (max-width: 768px) {
     .faq-section {
         padding: 56px 24px;
     }
 
-    /* Converts split desktop structure into vertical stack centered elements */
     .faq-container {
         flex-direction: column;
         align-items: center;
@@ -1672,6 +1699,10 @@ nav a:hover {
 
     .faq-support-text {
         font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
     }
 
     .faq-accordion-wrapper {
@@ -1682,7 +1713,6 @@ nav a:hover {
         padding: 18px 4px;
     }
 
-    /* Refines text variables for clean alignments within mobile frames */
     .faq-question {
         font-size: 15.5px;
         line-height: 1.35;
@@ -1691,10 +1721,476 @@ nav a:hover {
     .faq-answer {
         font-size: 13.5px;
         line-height: 1.55;
-        text-align: left; /* Maintains left-aligned reading flow within the card */
+        text-align: left; 
     }
 
     .faq-item.active {
         padding: 4px 12px;
+    }
+
+    .faq-arrow {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ==========================================================================
+   ── BANNER CALL-TO-ACTION LAYOUT SYSTEM ──
+   ========================================================================== */
+.cta-banner {
+    background-color: var(--primary);
+    position: relative;
+    padding: 0 60px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.cta-top-notch {
+    position: absolute;
+    top: 0;
+    left: 12%;
+    width: 320px;
+    height: 14px;
+    background-color: var(--white);
+    clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%);
+}
+
+.cta-container {
+    max-width: 1300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content {
+    flex: 1;
+    max-width: 620px;
+    padding: 90px 0;
+}
+
+.cta-heading {
+    font-family: var(--font-sans);
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin: 0 0 24px 0;
+    letter-spacing: -0.5px;
+}
+
+.cta-features {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 44px;
+}
+
+.cta-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.cta-check-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--secondary);
+    padding: 6px 6px 6px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    gap: 18px;
+    transition: background-color 0.25s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-hover);
+}
+
+.cta-btn-text {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.cta-btn-icon-box {
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-phone-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.cta-graphics-wrapper {
+    flex: 1;
+    max-width: 580px;
+    display: flex;
+    align-items: flex-end;
+    align-self: flex-end;
+    height: auto;
+    position: relative;
+}
+
+.cta-composite-banner-img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    display: block;
+    object-fit: contain;
+    object-position: bottom right;
+}
+
+
+/* ==========================================================================
+   ── GLOBAL BRAND MAIN FOOTER STYLE SHEETS ──
+   ========================================================================== */
+.main-footer {
+    background-color: var(--secondary);
+    padding: 60px 60px 30px 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-inner-wrapper {
+    max-width: 1300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter-bar {
+    background-color: rgba(255, 255, 255, 0.18);
+    border-radius: 100px;
+    padding: 24px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 60px;
+}
+
+.newsletter-text-block {
+    flex: 1;
+}
+
+.newsletter-title {
+    font-family: var(--font-sans);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 4px 0;
+}
+
+.newsletter-subtitle {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--white);
+    opacity: 0.9;
+    margin: 0;
+}
+
+.newsletter-form-container {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 460px;
+}
+
+.newsletter-form {
+    background-color: var(--white);
+    padding: 6px 6px 6px 24px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.newsletter-input {
+    border: none;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--primary);
+    width: 100%;
+    outline: none;
+    padding-right: 12px;
+}
+
+.newsletter-input::placeholder {
+    color: var(--primary-muted);
+}
+
+.newsletter-submit-btn {
+    background-color: var(--secondary);
+    color: var(--white);
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.newsletter-submit-btn:hover {
+    background-color: var(--primary);
+}
+
+.footer-columns-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 48px;
+    padding-bottom: 60px;
+}
+
+.footer-brand-column {
+    max-width: 360px;
+}
+
+.footer-logo-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.footer-logo-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.footer-logo-text {
+    font-family: var(--font-sans);
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--white);
+}
+
+.footer-brand-desc {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--white);
+    margin: 0 0 24px 0;
+    opacity: 0.95;
+}
+
+.footer-social-row {
+    display: flex;
+    gap: 16px;
+}
+
+.social-icon-link {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+}
+
+.social-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.footer-menus-grid {
+    display: flex;
+    gap: 80px;
+}
+
+.footer-menu-title {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 16px 0;
+}
+
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links-list a {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.footer-bottom-copyright {
+    border-top: 1px solid var(--muted-border);
+    padding-top: 24px;
+    text-align: center;
+}
+
+.copyright-text {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--white);
+    opacity: 0.9;
+    margin: 0;
+}
+
+
+/* ==========================================================================
+   ── SPECIFIC MOBILE ADAPTATION PROFILE (UP TO 768PX) ──
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* --- CTA SECTION MOBILE ORIENTATION --- */
+    .cta-banner {
+        padding: 0 24px;
+    }
+    
+    .cta-top-notch {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 180px;
+    }
+
+    .cta-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 0;
+    }
+
+    .faq-item:last-child {
+        border-bottom: none;
+    }
+
+    .cta-content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 0 32px 0;
+    }
+
+    .cta-heading {
+        font-size: 32px;
+        line-height: 1.25;
+        margin-bottom: 16px;
+    }
+
+    .cta-features {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    .cta-feature-item {
+        font-size: 14px;
+    }
+
+    .cta-graphics-wrapper {
+        width: 100%;
+        max-width: 100%;
+        align-self: center;
+        justify-content: center;
+    }
+
+    .cta-composite-banner-img {
+        max-height: 320px;
+        object-position: center bottom;
+    }
+
+    /* --- NEWSLETTER MOBILE INLINE CAPSULE MATCH --- */
+    .newsletter-bar {
+        border-radius: 24px;
+        flex-direction: column;
+        padding: 28px 20px;
+        gap: 20px;
+        text-align: left;
+        margin-bottom: 40px;
+    }
+
+    .newsletter-title {
+        font-size: 20px;
+    }
+
+    .newsletter-form-container {
+        max-width: 100%;
+    }
+
+    .newsletter-form {
+        display: flex;
+        flex-direction: row; 
+        padding: 4px 4px 4px 16px;
+        justify-content: space-between;
+    }
+
+    .newsletter-input {
+        font-size: 14px;
+        padding-right: 8px;
+    }
+
+    .newsletter-submit-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+    /* --- FOOTER COLUMNS SIDE-BY-SIDE GRID MOBILE RECOVERY --- */
+    .main-footer {
+        padding: 40px 24px 24px 24px;
+    }
+
+    .footer-columns-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 36px;
+        padding-bottom: 40px;
+    }
+
+    .footer-brand-column {
+        max-width: 100%;
+    }
+
+    .footer-menus-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 24px;
+        width: 100%;
+    }
+
+    .footer-menu-title {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .footer-links-list a {
+        font-size: 14px;
     }
 }
